@@ -2,9 +2,9 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<title>Du bist meine Pupsi ❤️</title>
+<title>Du bist meine Baby ❤️</title>
 
-<!-- Holy River Schrift für den Text -->
+<!-- Holy River Schrift laden -->
 <link href="https://fonts.googleapis.com/css2?family=Holy+River&display=swap" rel="stylesheet">
 
 <style>
@@ -15,22 +15,22 @@ html, body {
   height: 100%;
   width: 100%;
   font-family: 'Holy River', cursive;
-  background-color: #ff4d4d; /* eleganter roter Grund */
+  background-color: #ff4d4d; /* roter Hintergrund */
   overflow-y: auto; /* Scrollbar aktiv */
   scroll-behavior: smooth;
   position: relative;
 }
 
-/* Luxus-Overlay für obere Ebene */
+/* Overlay Hintergrund */
 body::before {
   content: "";
   position: fixed;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background-image: url('https://cdn.pixabay.com/photo/2016/12/09/09/37/aurora-1896419_1280.jpg'); /* freies Aurora-Bild als Overlay */
+  background-image: url('https://cdn.pixabay.com/photo/2016/12/09/09/37/aurora-1896419_1280.jpg');
   background-size: cover;
   background-position: center;
-  opacity: 0.15; /* leicht transparent */
+  opacity: 0.15;
   z-index: -1;
 }
 
@@ -42,14 +42,13 @@ body::before {
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative;
 }
 
 /* Header */
 h1 {
   font-size: 70px;
   text-align: center;
-  color: #ffffff; /* weiß */
+  color: #ffffff; /* Weißer Text */
   text-shadow: 3px 3px 15px rgba(0,0,0,0.5);
   margin-bottom: 60px;
   letter-spacing: 8px;
@@ -59,7 +58,7 @@ h1 {
 /* Rede-Box */
 .speech {
   width: 100%;
-  background-color: rgba(0,0,0,0.35); /* leicht transparent */
+  background-color: rgba(0,0,0,0.35);
   padding: 40px 60px;
   border-radius: 25px;
   box-shadow: 0 0 50px rgba(161,0,0,0.8);
@@ -75,44 +74,38 @@ h1 {
 
 /* Tulpen am Rand */
 .speech::before, .speech::after {
-  content: url('https://cdn.pixabay.com/photo/2014/12/21/23/49/tulip-575990_1280.png'); /* Tulpe als Randbild */
+  content: url('https://cdn.pixabay.com/photo/2014/12/21/23/49/tulip-575990_1280.png'); /* Tulpe am Rand */
   position: absolute;
-  top: -10px;
+  top: 0;
   width: 50px;
   height: auto;
 }
 
-.speech::before {
-  left: -70px;
-}
+.speech::before { left: -70px; }
+.speech::after { right: -70px; }
 
-.speech::after {
-  right: -70px;
-}
-
-/* FadeIn Animation für Header */
+/* Header FadeIn Animation */
 @keyframes fadeInHeader {
   0% {opacity: 0; transform: translateY(-30px);}
   100% {opacity: 1; transform: translateY(0);}
 }
 
-/* Luxus Details: Glanzpunkte */
+/* Luxuriöse Glitzerpunkte */
 .sparkle {
   position: absolute;
   width: 8px;
   height: 8px;
   background: radial-gradient(circle, #fff5cc, rgba(255,255,255,0));
   border-radius: 50%;
-  animation: sparkleMove 5s linear infinite;
+  animation: sparkleMove 6s linear infinite;
   opacity: 0.8;
 }
 
 @keyframes sparkleMove {
   0% {transform: translateY(0) translateX(0);}
-  50% {transform: translateY(-400px) translateX(100px);}
+  50% {transform: translateY(-400px) translateX(120px);}
   100% {transform: translateY(-800px) translateX(0);}
 }
-
 </style>
 </head>
 
@@ -139,7 +132,7 @@ Du bist mein alles und vergiss es bitte nicht. Ich liebe dich.
 
 </div>
 
-<!-- Luxus glitzernde Punkte -->
+<!-- Glitzerpunkte für Luxus-Feeling -->
 <div class="sparkle" style="top:20%; left:15%;"></div>
 <div class="sparkle" style="top:50%; left:80%;"></div>
 <div class="sparkle" style="top:70%; left:40%;"></div>
