@@ -10,54 +10,107 @@
 html, body {
   margin: 0;
   padding: 0;
-  height: 100%;
-  width: 100%;
   font-family: 'Holy River', cursive;
-  /* leicht dunklerer Verlauf */
-  background: linear-gradient(180deg, #7a0000, #d93a3a);
-  overflow-y: auto;
+  overflow-x: hidden;
   scroll-behavior: smooth;
-  position: relative;
-  background-attachment: fixed;
+  background: black;
+  color: white;
 }
 
-/* Overlay minimal reduziert */
-body::before {
-  content: "";
+/* =========================
+   🎬 CINEMATIC INTRO
+========================= */
+
+#intro {
   position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background-image: url('https://cdn.pixabay.com/photo/2016/12/09/09/37/aurora-1896419_1280.jpg');
+  inset: 0;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: introFadeOut 2s ease 4s forwards;
+}
+
+#intro h1 {
+  font-size: 90px;
+  letter-spacing: 15px;
+  color: gold;
+  text-shadow:
+      0 0 10px #fff,
+      0 0 25px #ffd700,
+      0 0 60px #ffcc00;
+  opacity: 0;
+  animation: titleReveal 3s ease forwards;
+}
+
+@keyframes titleReveal {
+  to { opacity: 1; }
+}
+
+@keyframes introFadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* =========================
+   🌌 3D PARALLAX LAYER
+========================= */
+
+.parallax-layer {
+  position: fixed;
+  inset: 0;
   background-size: cover;
   background-position: center;
-  opacity: 0.14;
+  will-change: transform;
+  z-index: -3;
+}
+
+#stars {
+  background-image: url('https://cdn.pixabay.com/photo/2017/08/30/07/52/starry-sky-2695569_1280.jpg');
+  z-index: -3;
+}
+
+#aurora {
+  background-image: url('https://cdn.pixabay.com/photo/2016/12/09/09/37/aurora-1896419_1280.jpg');
+  opacity: 0.25;
+  z-index: -2;
+}
+
+#glow {
+  background: radial-gradient(circle at center, rgba(255,215,0,0.15), transparent 70%);
   z-index: -1;
 }
 
-/* Container */
+/* =========================
+   CONTAINER
+========================= */
+
 .container {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 120px 20px;
+  padding: 200px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* Titel – Glow leicht reduziert */
 h1 {
-  font-size: 85px;
+  font-size: 80px;
+  margin-bottom: 80px;
   text-align: center;
-  color: #ffffff;
-  letter-spacing: 12px;
-  margin-bottom: 100px;
+  color: white;
   text-shadow:
-      0 0 8px #fff,
-      0 0 18px #e6b800,
-      0 0 35px #b30000;
+      0 0 10px #fff,
+      0 0 30px #ffd700;
 }
 
-/* Glassmorphism + echter Goldrahmen */
+/* =========================
+   SPEECH BOX
+========================= */
+
 .speech {
   width: 100%;
   backdrop-filter: blur(25px);
@@ -69,79 +122,47 @@ h1 {
   text-align: justify;
   color: #ffffff;
   position: relative;
-  margin-bottom: 120px;
+  margin-bottom: 150px;
 
-  /* SICHTBARER Goldrahmen */
   border: 3px solid;
   border-image: linear-gradient(45deg, #caa200, #ffd700, #b8860b) 1;
 
   box-shadow:
       0 30px 80px rgba(0,0,0,0.5),
-      inset 0 0 40px rgba(255,255,255,0.04);
-
-  letter-spacing: 1px;
-
-  opacity: 0;
-  transform: translateY(60px);
-  transition: all 1.6s ease;
+      inset 0 0 40px rgba(255,255,255,0.05);
 }
 
-/* Tulpen */
-.tulip-left, .tulip-right {
-  position: absolute;
-  top: 0;
-  width: 60px;
-  height: 100%;
-  background-image: url('https://cdn.pixabay.com/photo/2014/12/21/23/49/tulip-575990_1280.png');
-  background-repeat: repeat-y;
-  background-size: contain;
-  animation: sway 5s ease-in-out infinite;
-}
+/* =========================
+   SCROLLBAR
+========================= */
 
-.tulip-left { left: -80px; }
-.tulip-right { right: -80px; }
-
-@keyframes sway {
-  0%,100% { transform: rotate(0deg); }
-  50% { transform: rotate(2deg); }
-}
-
-/* Scrollbar */
 ::-webkit-scrollbar {
-  width: 9px;
+  width: 8px;
 }
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(#caa200, #ffd700);
   border-radius: 20px;
 }
-
-/* Glitzer etwas sanfter */
-.sparkle {
-  position: absolute;
-  width: 5px;
-  height: 5px;
-  background: radial-gradient(circle, #fff3c4, rgba(255,255,255,0));
-  border-radius: 50%;
-  opacity: 0.7;
-  animation: sparkleMove linear infinite;
-}
-
-@keyframes sparkleMove {
-  0% {transform: translateY(0) translateX(0);}
-  100% {transform: translateY(-1500px) translateX(250px);}
-}
 </style>
 </head>
 
 <body>
+
+<!-- 🎬 INTRO -->
+<div id="intro">
+  <h1>Du bist meine Baby</h1>
+</div>
+
+<!-- 🌌 PARALLAX BACKGROUND -->
+<div id="stars" class="parallax-layer"></div>
+<div id="aurora" class="parallax-layer"></div>
+<div id="glow" class="parallax-layer"></div>
+
 <div class="container">
 
-  <h1>Du bist meine Baby</h1>
+<h1>Du bist meine Baby</h1>
 
-  <div class="speech" id="speechBox">
-    <div class="tulip-left"></div>
-    <div class="tulip-right"></div>
-
+<div class="speech">
 Liebe Jamilia,  
 
 wir kennen uns erst seit 8 Monaten. Es fühlt sich gar nicht so an baby. Jede verbrachte mit dir Sekunde hat mir etwas beigebracht und ebenfalls ließ mich etwas fühlen. Es waren verschiedene Gefühle, die wir gemeinsam durchgangen sind, folglich gaben sie uns einen Schub nach vorne und machten uns reifer.  
@@ -155,33 +176,20 @@ Thus bist du meine kleine blonde Jami, die richtig lustig und hübsch in meinen 
 Meine Jami, Baby, Baibu, Baiba, mein Sonnenschein, Pupsi, Popelmann, Popelfrau, Kakaman, Kakafrau, Bauchnabelfusel, Prinzessin, meine zukünftige Frau, Frau Nikulina, Jamilia Fatima Uzuntas, Jamie, JAMIIIIIIIILIIAAA, Jamik, Джамілія, Джамилия, mein Lockenkopf, Dzami, Jamiyami, Jamiäster.  
 
 Du bist mein alles und vergiss es bitte nicht. Ich liebe dich.
+</div>
 
-  </div>
 </div>
 
 <script>
-const count = 80;
-for(let i=0;i<count;i++){
-  const sparkle = document.createElement('div');
-  sparkle.className = 'sparkle';
-  sparkle.style.left = Math.random()*100 + 'vw';
-  sparkle.style.top = Math.random()*100 + 'vh';
-  sparkle.style.width = 4+Math.random()*6 + 'px';
-  sparkle.style.height = sparkle.style.width;
-  sparkle.style.animationDuration = 12 + Math.random()*12 + 's';
-  document.body.appendChild(sparkle);
-}
 
-/* Fade-In */
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.style.opacity = 1;
-      entry.target.style.transform = "translateY(0)";
-    }
-  });
+/* 🌌 3D Parallax Effect */
+window.addEventListener("scroll", function() {
+  const scrollY = window.scrollY;
+  document.getElementById("stars").style.transform = `translateY(${scrollY * 0.2}px)`;
+  document.getElementById("aurora").style.transform = `translateY(${scrollY * 0.4}px)`;
+  document.getElementById("glow").style.transform = `translateY(${scrollY * 0.6}px)`;
 });
-observer.observe(document.getElementById("speechBox"));
+
 </script>
 
 </body>
