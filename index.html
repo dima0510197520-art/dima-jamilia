@@ -4,19 +4,18 @@
 <meta charset="UTF-8">
 <title>Du bist meine Baby ❤️</title>
 
-<!-- Holy River Schrift laden -->
+<!-- Holy River Schrift -->
 <link href="https://fonts.googleapis.com/css2?family=Holy+River&display=swap" rel="stylesheet">
 
 <style>
-/* Grundlayout */
 html, body {
   margin: 0;
   padding: 0;
   height: 100%;
   width: 100%;
   font-family: 'Holy River', cursive;
-  background-color: #ff4d4d; /* roter Hintergrund */
-  overflow-y: auto; /* Scrollbar aktiv */
+  background-color: #ff4d4d;
+  overflow-y: auto;
   scroll-behavior: smooth;
   position: relative;
 }
@@ -48,14 +47,13 @@ body::before {
 h1 {
   font-size: 70px;
   text-align: center;
-  color: #ffffff; /* Weißer Text */
+  color: #ffffff;
   text-shadow: 3px 3px 15px rgba(0,0,0,0.5);
   margin-bottom: 60px;
   letter-spacing: 8px;
-  animation: fadeInHeader 2s ease-in-out forwards;
 }
 
-/* Rede-Box */
+/* Rede Box */
 .speech {
   width: 100%;
   background-color: rgba(0,0,0,0.35);
@@ -72,40 +70,37 @@ h1 {
   border: 2px solid #ffb3b3;
 }
 
-/* Tulpen am Rand */
+/* Tulpen am Rand wiederholt */
 .speech::before, .speech::after {
-  content: url('https://cdn.pixabay.com/photo/2014/12/21/23/49/tulip-575990_1280.png'); /* Tulpe am Rand */
+  content: "";
   position: absolute;
   top: 0;
   width: 50px;
-  height: auto;
+  height: 100%;
+  background-image: url('https://cdn.pixabay.com/photo/2014/12/21/23/49/tulip-575990_1280.png');
+  background-repeat: repeat-y;
+  background-size: contain;
 }
 
 .speech::before { left: -70px; }
 .speech::after { right: -70px; }
 
-/* Header FadeIn Animation */
-@keyframes fadeInHeader {
-  0% {opacity: 0; transform: translateY(-30px);}
-  100% {opacity: 1; transform: translateY(0);}
-}
-
-/* Luxuriöse Glitzerpunkte */
+/* Glitzerpunkte */
 .sparkle {
   position: absolute;
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   background: radial-gradient(circle, #fff5cc, rgba(255,255,255,0));
   border-radius: 50%;
-  animation: sparkleMove 6s linear infinite;
   opacity: 0.8;
+  animation: sparkleMove linear infinite;
 }
 
 @keyframes sparkleMove {
   0% {transform: translateY(0) translateX(0);}
-  50% {transform: translateY(-400px) translateX(120px);}
-  100% {transform: translateY(-800px) translateX(0);}
+  100% {transform: translateY(-1200px) translateX(200px);}
 }
+
 </style>
 </head>
 
@@ -132,11 +127,20 @@ Du bist mein alles und vergiss es bitte nicht. Ich liebe dich.
 
 </div>
 
-<!-- Glitzerpunkte für Luxus-Feeling -->
-<div class="sparkle" style="top:20%; left:15%;"></div>
-<div class="sparkle" style="top:50%; left:80%;"></div>
-<div class="sparkle" style="top:70%; left:40%;"></div>
-<div class="sparkle" style="top:30%; left:60%;"></div>
+<!-- Mehrere Glitzerpunkte für Luxus -->
+<script>
+const count = 40; // Anzahl der Funken
+for(let i=0;i<count;i++){
+  const sparkle = document.createElement('div');
+  sparkle.className = 'sparkle';
+  sparkle.style.left = Math.random()*100 + 'vw';
+  sparkle.style.top = Math.random()*100 + 'vh';
+  sparkle.style.width = 4+Math.random()*6 + 'px';
+  sparkle.style.height = sparkle.style.width;
+  sparkle.style.animationDuration = 6 + Math.random()*8 + 's';
+  document.body.appendChild(sparkle);
+}
+</script>
 
 </body>
 </html>
