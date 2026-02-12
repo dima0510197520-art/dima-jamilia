@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <title>Du bist meine Baby ❤️</title>
 
-<!-- Holy River Schrift -->
 <link href="https://fonts.googleapis.com/css2?family=Holy+River&display=swap" rel="stylesheet">
 
 <style>
@@ -14,13 +13,14 @@ html, body {
   height: 100%;
   width: 100%;
   font-family: 'Holy River', cursive;
-  background-color: #ff4d4d;
+  background: linear-gradient(180deg, #8b0000, #ff4d4d);
   overflow-y: auto;
   scroll-behavior: smooth;
   position: relative;
+  background-attachment: fixed; /* Parallax */
 }
 
-/* Overlay Hintergrund */
+/* Overlay */
 body::before {
   content: "";
   position: fixed;
@@ -29,63 +29,114 @@ body::before {
   background-image: url('https://cdn.pixabay.com/photo/2016/12/09/09/37/aurora-1896419_1280.jpg');
   background-size: cover;
   background-position: center;
-  opacity: 0.15;
+  opacity: 0.18;
   z-index: -1;
 }
 
 /* Container */
 .container {
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 50px 20px;
+  padding: 120px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* Header */
+/* Titel Ultra Glow */
 h1 {
-  font-size: 70px;
+  font-size: 85px;
   text-align: center;
   color: #ffffff;
-  text-shadow: 3px 3px 15px rgba(0,0,0,0.5);
-  margin-bottom: 60px;
-  letter-spacing: 8px;
+  letter-spacing: 12px;
+  margin-bottom: 100px;
+  text-shadow:
+      0 0 10px #fff,
+      0 0 25px gold,
+      0 0 50px #ff4d4d,
+      0 0 100px #ff0000;
 }
 
-/* Rede Box */
+/* Glassmorphism + Gold Frame */
 .speech {
   width: 100%;
-  background-color: rgba(0,0,0,0.35);
-  padding: 40px 60px;
-  border-radius: 25px;
-  box-shadow: 0 0 50px rgba(161,0,0,0.8);
-  white-space: pre-line;
+  backdrop-filter: blur(30px);
+  background: rgba(255, 255, 255, 0.07);
+  padding: 80px 100px;
+  border-radius: 40px;
   font-size: 22px;
-  line-height: 1.7;
+  line-height: 1.9;
   text-align: justify;
-  color: #fffaf0;
+  color: #ffffff;
   position: relative;
-  margin-bottom: 60px;
-  border: 2px solid #ffb3b3;
+  margin-bottom: 120px;
+  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow:
+      0 40px 100px rgba(0,0,0,0.6),
+      inset 0 0 60px rgba(255,255,255,0.05);
+  letter-spacing: 1px;
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 1.8s ease;
 }
 
-/* Tulpen am Rand wiederholt */
-.speech::before, .speech::after {
+/* Animierter Goldrahmen */
+.speech::after {
   content: "";
   position: absolute;
+  inset: -5px;
+  border-radius: 45px;
+  background: linear-gradient(45deg, gold, #ffdf70, #fff4b0, gold);
+  z-index: -1;
+  filter: blur(12px);
+  opacity: 0.9;
+  animation: goldGlow 4s linear infinite;
+}
+
+@keyframes goldGlow {
+  0% {filter: blur(10px) brightness(1);}
+  50% {filter: blur(18px) brightness(1.3);}
+  100% {filter: blur(10px) brightness(1);}
+}
+
+/* Tulpen */
+.speech::before, .speech::marker {
+  content: "";
+}
+
+.speech::before, .speech::after {
+  pointer-events: none;
+}
+
+.tulip-left, .tulip-right {
+  position: absolute;
   top: 0;
-  width: 50px;
+  width: 60px;
   height: 100%;
   background-image: url('https://cdn.pixabay.com/photo/2014/12/21/23/49/tulip-575990_1280.png');
   background-repeat: repeat-y;
   background-size: contain;
+  animation: sway 5s ease-in-out infinite;
 }
 
-.speech::before { left: -70px; }
-.speech::after { right: -70px; }
+.tulip-left { left: -80px; }
+.tulip-right { right: -80px; }
 
-/* Glitzerpunkte */
+@keyframes sway {
+  0%,100% { transform: rotate(0deg); }
+  50% { transform: rotate(3deg); }
+}
+
+/* Scrollbar Premium */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(gold, #ffcc00);
+  border-radius: 20px;
+}
+
+/* Glitzer */
 .sparkle {
   position: absolute;
   width: 6px;
@@ -98,9 +149,8 @@ h1 {
 
 @keyframes sparkleMove {
   0% {transform: translateY(0) translateX(0);}
-  100% {transform: translateY(-1200px) translateX(200px);}
+  100% {transform: translateY(-1500px) translateX(300px);}
 }
-
 </style>
 </head>
 
@@ -109,7 +159,10 @@ h1 {
 
   <h1>Du bist meine Baby</h1>
 
-  <div class="speech">
+  <div class="speech" id="speechBox">
+    <div class="tulip-left"></div>
+    <div class="tulip-right"></div>
+
 Liebe Jamilia,  
 
 wir kennen uns erst seit 8 Monaten. Es fühlt sich gar nicht so an baby. Jede verbrachte mit dir Sekunde hat mir etwas beigebracht und ebenfalls ließ mich etwas fühlen. Es waren verschiedene Gefühle, die wir gemeinsam durchgangen sind, folglich gaben sie uns einen Schub nach vorne und machten uns reifer.  
@@ -123,13 +176,13 @@ Thus bist du meine kleine blonde Jami, die richtig lustig und hübsch in meinen 
 Meine Jami, Baby, Baibu, Baiba, mein Sonnenschein, Pupsi, Popelmann, Popelfrau, Kakaman, Kakafrau, Bauchnabelfusel, Prinzessin, meine zukünftige Frau, Frau Nikulina, Jamilia Fatima Uzuntas, Jamie, JAMIIIIIIIILIIAAA, Jamik, Джамілія, Джамилия, mein Lockenkopf, Dzami, Jamiyami, Jamiäster.  
 
 Du bist mein alles und vergiss es bitte nicht. Ich liebe dich.
-  </div>
 
+  </div>
 </div>
 
-<!-- Mehrere Glitzerpunkte für Luxus -->
 <script>
-const count = 40; // Anzahl der Funken
+/* Mehr luxuriöse Glitzer */
+const count = 80;
 for(let i=0;i<count;i++){
   const sparkle = document.createElement('div');
   sparkle.className = 'sparkle';
@@ -137,9 +190,20 @@ for(let i=0;i<count;i++){
   sparkle.style.top = Math.random()*100 + 'vh';
   sparkle.style.width = 4+Math.random()*6 + 'px';
   sparkle.style.height = sparkle.style.width;
-  sparkle.style.animationDuration = 6 + Math.random()*8 + 's';
+  sparkle.style.animationDuration = 10 + Math.random()*15 + 's';
   document.body.appendChild(sparkle);
 }
+
+/* Fade-In Scroll */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.style.opacity = 1;
+      entry.target.style.transform = "translateY(0)";
+    }
+  });
+});
+observer.observe(document.getElementById("speechBox"));
 </script>
 
 </body>
