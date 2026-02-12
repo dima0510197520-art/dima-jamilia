@@ -122,7 +122,7 @@ h1 {
   text-align: justify;
   color: #ffffff;
   position: relative;
-  margin-bottom: 150px;
+  margin-bottom: 60px;
 
   border: 3px solid;
   border-image: linear-gradient(45deg, #caa200, #ffd700, #b8860b) 1;
@@ -130,6 +130,34 @@ h1 {
   box-shadow:
       0 30px 80px rgba(0,0,0,0.5),
       inset 0 0 40px rgba(255,255,255,0.05);
+}
+
+/* =========================
+   PULSIERENDES HERZ
+========================= */
+
+.heart-container {
+  margin-top: 40px;
+  margin-bottom: 150px;
+}
+
+.heart {
+  font-size: 90px;
+  color: #ff1a1a;
+  animation: pulse 1.5s infinite;
+  text-shadow:
+      0 0 10px #ff4d4d,
+      0 0 25px #ff0000,
+      0 0 45px #ff1a1a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
 }
 
 /* =========================
@@ -143,6 +171,7 @@ h1 {
   background: linear-gradient(#caa200, #ffd700);
   border-radius: 20px;
 }
+
 </style>
 </head>
 
@@ -176,6 +205,11 @@ Thus bist du meine kleine blonde Jami, die richtig lustig und hübsch in meinen 
 Meine Jami, Baby, Baibu, Baiba, mein Sonnenschein, Pupsi, Popelmann, Popelfrau, Kakaman, Kakafrau, Bauchnabelfusel, Prinzessin, meine zukünftige Frau, Frau Nikulina, Jamilia Fatima Uzuntas, Jamie, JAMIIIIIIIILIIAAA, Jamik, Джамілія, Джамилия, mein Lockenkopf, Dzami, Jamiyami, Jamiäster.  
 
 Du bist mein alles und vergiss es bitte nicht. Ich liebe dich.
+</div>
+
+<!-- ❤️ PULSIERENDES HERZ -->
+<div class="heart-container">
+  <div class="heart">❤️</div>
 </div>
 
 </div>
