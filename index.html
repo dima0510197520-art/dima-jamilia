@@ -6,81 +6,39 @@
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 
 <style>
-/* Body layout */
 body {
   margin: 0;
-  padding: 0;
+  padding: 50px 20px;
   min-height: 100vh;
   width: 100vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #ff4d4d; /* elegant red background */
-  font-family: Arial, Helvetica, sans-serif; /* solid readable font */
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #ff4d4d; /* eleganter roter Hintergrund */
   color: #fffaf0;
-  overflow: hidden;
-  padding: 50px 20px;
+  line-height: 1.6;
+  overflow-y: auto; /* ermöglicht Scrollen */
 }
 
-/* Main header */
+/* Header */
 h1 {
   font-family: 'Great Vibes', cursive;
   font-size: 70px;
   text-align: center;
   text-shadow: 2px 2px 20px #a10000;
-  line-height: 2;
-  letter-spacing: 8px;
-  margin-bottom: 60px;
-}
-
-/* Image styling */
-img {
-  width: 400px;
-  max-width: 90%;
-  border-radius: 20px;
-  border: 6px solid #a10000;
-  box-shadow: 0 0 35px #a10000;
-  animation: floatImage 5s ease-in-out infinite;
   margin-bottom: 50px;
-}
-
-/* Floating image animation */
-@keyframes floatImage {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
-  100% { transform: translateY(0); }
-}
-
-/* Elegant floating hearts (soft, glowing, random positions) */
-.heart {
-  position: absolute;
-  width: 15px;
-  height: 15px;
-  background: rgba(255,255,255,0.6);
-  clip-path: polygon(50% 0%, 61% 14%, 75% 14%, 85% 25%, 85% 40%, 50% 85%, 15% 40%, 15% 25%, 25% 14%, 39% 14%);
-  animation: floatHearts 10s linear infinite;
-  opacity: 0.8;
-}
-
-@keyframes floatHearts {
-  0% { transform: translateY(0) scale(0.5) rotate(0deg); opacity: 0.8; }
-  50% { transform: translateY(-400px) scale(1) rotate(180deg); opacity: 0.5; }
-  100% { transform: translateY(-800px) scale(0.5) rotate(360deg); opacity: 0; }
+  letter-spacing: 8px;
 }
 
 /* Speech box */
 .speech {
   max-width: 800px;
-  background-color: rgba(0,0,0,0.4); /* semi-transparent for readability */
+  margin: 0 auto 50px auto;
+  background-color: rgba(0,0,0,0.3); /* halbtransparent für Lesbarkeit */
   padding: 25px 40px;
   border-radius: 15px;
   box-shadow: 0 0 20px #a10000;
-  line-height: 1.6;
+  white-space: pre-line; /* Absätze bleiben erhalten */
   font-size: 20px;
-  color: #fffaf0;
-  white-space: pre-line; /* preserves line breaks */
   text-align: justify;
-  margin-bottom: 50px;
 }
 </style>
 </head>
@@ -89,19 +47,6 @@ img {
 
 <h1>Du bist meine Pupsi</h1>
 
-<!-- Your picture with red frame -->
-<img src="lovephoto.jpg" alt="Unser Bild ❤️">
-
-<!-- Elegant floating hearts -->
-<div class="heart" style="left: 5%; animation-delay: 0s;"></div>
-<div class="heart" style="left: 20%; animation-delay: 2s;"></div>
-<div class="heart" style="left: 35%; animation-delay: 4s;"></div>
-<div class="heart" style="left: 50%; animation-delay: 1s;"></div>
-<div class="heart" style="left: 65%; animation-delay: 3s;"></div>
-<div class="heart" style="left: 80%; animation-delay: 5s;"></div>
-<div class="heart" style="left: 90%; animation-delay: 6s;"></div>
-
-<!-- Speech -->
 <div class="speech">
 Liebe Jamilia,  
 
