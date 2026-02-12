@@ -10,25 +10,27 @@
 body {
   margin: 0;
   padding: 0;
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  background-color: #ff4d4d; /* Roter Hintergrund, elegant */
-  font-family: 'Great Vibes', cursive;
+  background-color: #ff4d4d; /* Eleganter roter Hintergrund */
+  font-family: Arial, Helvetica, sans-serif; /* Solide, klare Schrift für den Text */
   color: #fffaf0;
-  overflow: hidden;
+  overflow-x: hidden;
+  padding-top: 50px;
 }
 
 /* Haupttext */
 h1 {
+  font-family: 'Great Vibes', cursive;
   font-size: 70px;
   text-align: center;
   text-shadow: 2px 2px 20px #a10000;
-  line-height: 2;       /* mehr Abstand zwischen Zeilen */
-  letter-spacing: 8px;  /* mehr Abstand zwischen Buchstaben */
+  line-height: 2;
+  letter-spacing: 8px;
   margin-bottom: 60px;
   padding: 0 20px;
 }
@@ -38,9 +40,10 @@ img {
   width: 400px;
   max-width: 90%;
   border-radius: 20px;
-  border: 6px solid #a10000; /* Eleganter roter Rahmen */
+  border: 6px solid #a10000;
   box-shadow: 0 0 35px #a10000;
   animation: floatImage 5s ease-in-out infinite;
+  margin-bottom: 50px;
 }
 
 /* Sanftes Schweben des Bildes */
@@ -50,7 +53,7 @@ img {
   100% { transform: translateY(0); }
 }
 
-/* Herzanimation */
+/* Floating Hearts */
 .heart {
   position: absolute;
   font-size: 30px;
@@ -62,6 +65,21 @@ img {
   0% { transform: translateY(0) rotate(0deg); opacity: 1; }
   100% { transform: translateY(-700px) rotate(360deg); opacity: 0; }
 }
+
+/* Speech box */
+.speech {
+  max-width: 800px;
+  background-color: rgba(0,0,0,0.4); /* halbtransparent, damit Text gut lesbar ist */
+  padding: 25px 40px;
+  border-radius: 15px;
+  margin-top: 40px;
+  box-shadow: 0 0 20px #a10000;
+  line-height: 1.6;
+  font-size: 20px;
+  color: #fffaf0;
+  white-space: pre-line; /* behält Absätze */
+  text-align: justify;
+}
 </style>
 </head>
 
@@ -70,7 +88,7 @@ img {
 <!-- Haupttext -->
 <h1>Du bist meine Pupsi</h1>
 
-<!-- Bild von euch beiden -->
+<!-- Bild mit rotem Rahmen -->
 <img src="lovephoto.jpg" alt="Unser Bild ❤️" />
 
 <!-- Floating Hearts -->
@@ -79,6 +97,23 @@ img {
 <div class="heart" style="left: 50%; animation-delay: 2s;">❤️</div>
 <div class="heart" style="left: 70%; animation-delay: 3s;">❤️</div>
 <div class="heart" style="left: 90%; animation-delay: 4s;">❤️</div>
+
+<!-- Speech -->
+<div class="speech">
+Liebe Jamilia,  
+
+wir kennen uns erst seit 8 Monaten. Es fühlt sich gar nicht so an baby. Jede verbrachte mit dir Sekunde hat mir etwas beigebracht und ebenfalls ließ mich etwas fühlen. Es waren verschiedene Gefühle, die wir gemeinsam durchgangen sind, folglich gaben sie uns einen Schub nach vorne und machten uns reifer.  
+
+Manchmal bin ich nervig, ich weiß. Manchmal gehe ich über die Grenzen, weiß ich auch. Ich mag es nicht, um ehrlich zu sein. Ich habe jeden Tag Gedanken, um mich zu verbessern und in deinen Augen noch rasanter aufzusteigen. Ja, du sagst mir, dass ich es schon bin, allerdings ich möchte dir zeigen, dass meine Hartnäckigkeit manchmal auch ins Bessere umgewandelt sein kann, bzw. über die Grenzen des Perfekten ausgehen.  
+
+Du bist meine Schönheit, du bist wirklich mega schön. Außerdem brauchst du dir keine Sorgen um dein Aussehen zu machen, Prinzessinnen beschweren sich immer wegen ihres Äußerlichen und das ist ein Fakt!  
+
+Thus bist du meine kleine blonde Jami, die richtig lustig und hübsch in meinen Augen ist, dessen Redegewandheit, Rationalität und Leidenschaft sehr ausgespitzt sind.  
+
+Meine Jami, Baby, Baibu, Baiba, mein Sonnenschein, Pupsi, Popelmann, Popelfrau, Kakaman, Kakafrau, Bauchnabelfusel, Prinzessin, meine zukünftige Frau, Frau Nikulina, Jamilia Fatima Uzuntas, Jamie, JAMIIIIIIIILIIAAA, Jamik, Джамілія, Джамилия, mein Lockenkopf, Dzami, Jamiyami, Jamiäster.  
+
+Du bist mein alles und vergiss es bitte nicht. Ich liebe dich.
+</div>
 
 </body>
 </html>
