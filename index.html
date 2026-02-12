@@ -2,90 +2,80 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<title>Für meine Liebe ❤️</title>
-
-<!-- Elegant Valentine fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Sacramento&display=swap" rel="stylesheet">
+<title>Du bist meine Pupsi ❤️</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 
 <style>
-/* Body styling */
+/* Grundlayout */
 body {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-image: url('https://i.imgur.com/NHfrRgk.jpg');
-    background-size: cover;
-    background-position: center;
-    font-family: 'Great Vibes', cursive;
-    overflow: hidden;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url('https://i.imgur.com/NHfrRgk.jpg');
+  background-size: cover;
+  background-position: center;
+  font-family: 'Great Vibes', cursive;
+  color: #fffaf0;
+  overflow: hidden;
 }
 
-/* Main Text */
+/* Haupttext */
 h1 {
-    color: #fffaf0;
-    font-family: 'Sacramento', cursive;
-    font-size: 72px;
-    text-shadow: 2px 2px 15px #a10000;
-    text-align: center;
-    letter-spacing: 6px; /* more spacing between letters */
-    line-height: 2; /* more spacing between lines */
-    margin-bottom: 50px;
-    animation: pulse 2s infinite;
+  font-size: 70px;
+  text-align: center;
+  text-shadow: 2px 2px 20px #a10000;
+  line-height: 2;       /* Abstand zwischen den Zeilen */
+  letter-spacing: 8px;  /* Abstand zwischen Buchstaben */
+  margin-bottom: 60px;
+  padding: 0 20px;
 }
 
-/* Pulse animation for text */
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.08); }
-    100% { transform: scale(1); }
-}
-
-/* Picture styling with elegant red frame */
+/* Bild mit elegantem roten Rahmen */
 img {
-    width: 350px;
-    max-width: 80%;
-    border-radius: 25px;
-    border: 6px solid #a10000; /* elegant red frame */
-    box-shadow: 0 0 30px #a10000;
-    animation: float 4s ease-in-out infinite;
+  width: 400px;
+  max-width: 90%;
+  border-radius: 20px;
+  border: 6px solid #a10000;
+  box-shadow: 0 0 35px #a10000;
+  animation: floatImage 5s ease-in-out infinite;
 }
 
-/* Floating effect for picture */
-@keyframes float {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
-    100% { transform: translateY(0); }
+/* Sanftes Schweben des Bildes */
+@keyframes floatImage {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0); }
 }
 
-/* Floating hearts animation */
+/* Herzanimation */
 .heart {
-    position: absolute;
-    font-size: 28px;
-    color: #fff0f0;
-    animation: floatHearts 6s linear infinite;
+  position: absolute;
+  font-size: 30px;
+  color: #fff0f0;
+  animation: floatHearts 6s linear infinite;
 }
 
 @keyframes floatHearts {
-    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-    100% { transform: translateY(-700px) rotate(360deg); opacity: 0; }
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(-700px) rotate(360deg); opacity: 0; }
 }
 </style>
 </head>
 
 <body>
 
-<!-- Clean elegant main text -->
+<!-- Haupttext -->
 <h1>Du bist meine Pupsi</h1>
 
-<!-- Your picture with red frame -->
-<img src="https://i.imgur.com/x1ZWcHE.jpg" alt="Uns ❤️">
+<!-- Bild mit rotem Rahmen -->
+<img src="https://i.imgur.com/x1ZWcHE.jpg" alt="Unser Bild ❤️">
 
-<!-- Floating hearts -->
+<!-- Floating Hearts -->
 <div class="heart" style="left: 10%; animation-delay: 0s;">❤️</div>
 <div class="heart" style="left: 30%; animation-delay: 1s;">❤️</div>
 <div class="heart" style="left: 50%; animation-delay: 2s;">❤️</div>
