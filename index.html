@@ -3,21 +3,38 @@
 <head>
 <meta charset="UTF-8">
 <title>Du bist meine Pupsi ❤️</title>
+
+<!-- Holy River Schrift laden -->
+<link href="https://fonts.googleapis.com/css2?family=Holy+River&display=swap" rel="stylesheet">
+
 <style>
-/* Body layout */
+/* Body Layout */
 html, body {
   margin: 0;
   padding: 0;
   height: 100%;
   width: 100%;
-  font-family: Calibri, sans-serif; /* Calibri Schrift */
-  background-color: #ff4d4d; /* eleganter roter Hintergrund */
-  color: #fffaf0;
-  overflow-y: auto; /* ermöglicht Scrollen */
+  font-family: 'Holy River', cursive; /* Holy River für den Text */
+  background-color: #ff4d4d; /* roter Hintergrund */
+  overflow-y: auto; /* Scrollbar aktiv */
   scroll-behavior: smooth;
+  position: relative;
 }
 
-/* Container für alles */
+/* Zweiter Hintergrund Overlay */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-image: url('https://icdn.lenta.ru/images/2021/11/16/16/20211116160354940/square_320_d83c54b3cfb8951aa3f93c1b8c38478c.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.2; /* Transparenz für Overlay-Effekt */
+  z-index: -1;
+}
+
+/* Container für Text + Tulpen */
 .container {
   max-width: 900px;
   margin: 0 auto;
@@ -25,6 +42,7 @@ html, body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 }
 
 /* Header */
@@ -36,24 +54,41 @@ h1 {
   text-shadow: 2px 2px 10px #a10000;
 }
 
-/* Rede-Box */
+/* Speech Box */
 .speech {
   width: 100%;
-  background-color: rgba(0,0,0,0.3); /* halbtransparent für Lesbarkeit */
-  padding: 30px 40px;
-  border-radius: 15px;
-  box-shadow: 0 0 20px #a10000;
-  white-space: pre-line; /* Absätze werden beibehalten */
-  font-size: 20px;
+  background-color: rgba(0,0,0,0.3); /* halbtransparent */
+  padding: 40px 60px;
+  border-radius: 20px;
+  box-shadow: 0 0 25px #a10000;
+  white-space: pre-line; /* Absätze beibehalten */
+  font-size: 22px;
   line-height: 1.6;
   text-align: justify;
-  margin-bottom: 50px;
+  color: #fffaf0;
+  position: relative;
+}
+
+/* Tulpen am Rand */
+.speech::before, .speech::after {
+  content: url('https://i.imgur.com/XYqTulpen.png'); /* Hier eigenes Tulpenbild einfügen */
+  position: absolute;
+  top: 0;
+  width: 50px;
+  height: auto;
+}
+
+.speech::before {
+  left: -60px; /* links neben dem Text */
+}
+
+.speech::after {
+  right: -60px; /* rechts neben dem Text */
 }
 </style>
 </head>
 
 <body>
-
 <div class="container">
   <h1>Du bist meine Pupsi</h1>
 
@@ -73,6 +108,5 @@ Meine Jami, Baby, Baibu, Baiba, mein Sonnenschein, Pupsi, Popelmann, Popelfrau, 
 Du bist mein alles und vergiss es bitte nicht. Ich liebe dich.
   </div>
 </div>
-
 </body>
 </html>
