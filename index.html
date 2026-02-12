@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>Für meine Liebe ❤️</title>
 
-<!-- Elegant Valentine-style font -->
+<!-- Elegant Valentine fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Sacramento&display=swap" rel="stylesheet">
 
 <style>
@@ -18,15 +18,14 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #ff4d4d;
-    background-image: url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1350&q=80');
+    background-image: url('https://i.imgur.com/NHfrRgk.jpg');
     background-size: cover;
     background-position: center;
     font-family: 'Great Vibes', cursive;
     overflow: hidden;
 }
 
-/* Text animation - letters appear one by one */
+/* Main Text */
 h1 {
     color: #fffaf0;
     font-family: 'Sacramento', cursive;
@@ -34,25 +33,25 @@ h1 {
     text-shadow: 2px 2px 15px #a10000;
     text-align: center;
     z-index: 10;
+    line-height: 1.8; /* More space between lines */
+    letter-spacing: 5px; /* More space between letters */
+    margin-bottom: 40px;
+    animation: pulse 2s infinite;
 }
 
-h1 span {
-    opacity: 0;
-    display: inline-block;
-    animation: appear 1s forwards;
+/* Pulse animation for text */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+    100% { transform: scale(1); }
 }
 
-@keyframes appear {
-    0% { opacity: 0; transform: translateY(-20px); }
-    100% { opacity: 1; transform: translateY(0); }
-}
-
-/* Your picture floating */
+/* Picture styling with elegant red frame */
 img {
     width: 350px;
     max-width: 80%;
     border-radius: 25px;
-    margin-top: 25px;
+    border: 6px solid #a10000; /* elegant red frame */
     box-shadow: 0 0 30px #a10000;
     animation: float 4s ease-in-out infinite;
 }
@@ -64,65 +63,35 @@ img {
     100% { transform: translateY(0); }
 }
 
-/* Heart animation */
-.heart, .petal {
+/* Floating hearts animation */
+.heart {
     position: absolute;
     font-size: 28px;
     color: #fff0f0;
     animation: floatHearts 6s linear infinite;
 }
 
-.petal {
-    font-size: 24px;
-    color: #ffd1dc;
-    animation-duration: 8s;
-}
-
-/* Hearts & petals floating up */
 @keyframes floatHearts {
     0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-    100% { transform: translateY(-800px) rotate(360deg); opacity: 0; }
+    100% { transform: translateY(-700px) rotate(360deg); opacity: 0; }
 }
 </style>
 </head>
 
 <body>
 
-<!-- Animated text: letters appear one by one -->
-<h1 id="animatedText"></h1>
+<!-- Elegant main text -->
+<h1>Du bist meine Pupsi</h1>
 
-<!-- Your picture -->
-<img src="lovephoto.jpg" alt="Wir zwei ❤️">
+<!-- Your picture with red frame -->
+<img src="https://i.imgur.com/x1ZWcHE.jpg" alt="Uns ❤️">
 
 <!-- Floating hearts -->
-<div class="heart" style="left: 5%; animation-delay: 0s;">❤️</div>
-<div class="heart" style="left: 20%; animation-delay: 1s;">❤️</div>
-<div class="heart" style="left: 35%; animation-delay: 2s;">❤️</div>
-<div class="heart" style="left: 50%; animation-delay: 3s;">❤️</div>
-<div class="heart" style="left: 65%; animation-delay: 4s;">❤️</div>
-<div class="heart" style="left: 80%; animation-delay: 5s;">❤️</div>
-<div class="heart" style="left: 95%; animation-delay: 6s;">❤️</div>
-
-<!-- Floating petals -->
-<div class="petal" style="left: 15%; animation-delay: 0s;">🌸</div>
-<div class="petal" style="left: 30%; animation-delay: 1s;">🌸</div>
-<div class="petal" style="left: 45%; animation-delay: 2s;">🌸</div>
-<div class="petal" style="left: 60%; animation-delay: 3s;">🌸</div>
-<div class="petal" style="left: 75%; animation-delay: 4s;">🌸</div>
-<div class="petal" style="left: 90%; animation-delay: 5s;">🌸</div>
-
-<script>
-// Letters appear one by one
-const text = "Du bist meine Pupsi";
-const container = document.getElementById('animatedText');
-
-for (let i = 0; i < text.length; i++) {
-    const span = document.createElement('span');
-    span.textContent = text[i];
-    span.style.animationDelay = `${i * 0.15}s`;
-    container.appendChild(span);
-}
-</script>
+<div class="heart" style="left: 10%; animation-delay: 0s;">❤️</div>
+<div class="heart" style="left: 30%; animation-delay: 1s;">❤️</div>
+<div class="heart" style="left: 50%; animation-delay: 2s;">❤️</div>
+<div class="heart" style="left: 70%; animation-delay: 3s;">❤️</div>
+<div class="heart" style="left: 90%; animation-delay: 4s;">❤️</div>
 
 </body>
 </html>
