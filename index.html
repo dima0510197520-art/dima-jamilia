@@ -4,37 +4,37 @@
 <meta charset="UTF-8">
 <title>Du bist meine Pupsi ❤️</title>
 
-<!-- Holy River Schrift laden -->
+<!-- Holy River Schrift für den Text -->
 <link href="https://fonts.googleapis.com/css2?family=Holy+River&display=swap" rel="stylesheet">
 
 <style>
-/* Body Layout */
+/* Grundlayout */
 html, body {
   margin: 0;
   padding: 0;
   height: 100%;
   width: 100%;
-  font-family: 'Holy River', cursive; /* Holy River für den Text */
-  background-color: #ff4d4d; /* roter Hintergrund */
+  font-family: 'Holy River', cursive;
+  background-color: #ff4d4d; /* eleganter roter Grund */
   overflow-y: auto; /* Scrollbar aktiv */
   scroll-behavior: smooth;
   position: relative;
 }
 
-/* Zweiter Hintergrund Overlay */
+/* Luxus-Overlay für obere Ebene */
 body::before {
   content: "";
   position: fixed;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background-image: url('https://icdn.lenta.ru/images/2021/11/16/16/20211116160354940/square_320_d83c54b3cfb8951aa3f93c1b8c38478c.jpg');
+  background-image: url('https://cdn.pixabay.com/photo/2016/12/09/09/37/aurora-1896419_1280.jpg'); /* freies Aurora-Bild als Overlay */
   background-size: cover;
   background-position: center;
-  opacity: 0.2; /* Transparenz für Overlay-Effekt */
+  opacity: 0.15; /* leicht transparent */
   z-index: -1;
 }
 
-/* Container für Text + Tulpen */
+/* Container */
 .container {
   max-width: 900px;
   margin: 0 auto;
@@ -47,50 +47,79 @@ body::before {
 
 /* Header */
 h1 {
-  font-size: 60px;
+  font-size: 70px;
   text-align: center;
-  margin-bottom: 50px;
-  letter-spacing: 6px;
-  text-shadow: 2px 2px 10px #a10000;
+  color: #ffffff; /* weiß */
+  text-shadow: 3px 3px 15px rgba(0,0,0,0.5);
+  margin-bottom: 60px;
+  letter-spacing: 8px;
+  animation: fadeInHeader 2s ease-in-out forwards;
 }
 
-/* Speech Box */
+/* Rede-Box */
 .speech {
   width: 100%;
-  background-color: rgba(0,0,0,0.3); /* halbtransparent */
+  background-color: rgba(0,0,0,0.35); /* leicht transparent */
   padding: 40px 60px;
-  border-radius: 20px;
-  box-shadow: 0 0 25px #a10000;
-  white-space: pre-line; /* Absätze beibehalten */
+  border-radius: 25px;
+  box-shadow: 0 0 50px rgba(161,0,0,0.8);
+  white-space: pre-line;
   font-size: 22px;
-  line-height: 1.6;
+  line-height: 1.7;
   text-align: justify;
   color: #fffaf0;
   position: relative;
+  margin-bottom: 60px;
+  border: 2px solid #ffb3b3;
 }
 
 /* Tulpen am Rand */
 .speech::before, .speech::after {
-  content: url('https://i.imgur.com/XYqTulpen.png'); /* Hier eigenes Tulpenbild einfügen */
+  content: url('https://cdn.pixabay.com/photo/2014/12/21/23/49/tulip-575990_1280.png'); /* Tulpe als Randbild */
   position: absolute;
-  top: 0;
+  top: -10px;
   width: 50px;
   height: auto;
 }
 
 .speech::before {
-  left: -60px; /* links neben dem Text */
+  left: -70px;
 }
 
 .speech::after {
-  right: -60px; /* rechts neben dem Text */
+  right: -70px;
 }
+
+/* FadeIn Animation für Header */
+@keyframes fadeInHeader {
+  0% {opacity: 0; transform: translateY(-30px);}
+  100% {opacity: 1; transform: translateY(0);}
+}
+
+/* Luxus Details: Glanzpunkte */
+.sparkle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle, #fff5cc, rgba(255,255,255,0));
+  border-radius: 50%;
+  animation: sparkleMove 5s linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes sparkleMove {
+  0% {transform: translateY(0) translateX(0);}
+  50% {transform: translateY(-400px) translateX(100px);}
+  100% {transform: translateY(-800px) translateX(0);}
+}
+
 </style>
 </head>
 
 <body>
 <div class="container">
-  <h1>Du bist meine Pupsi</h1>
+
+  <h1>Du bist meine Baby</h1>
 
   <div class="speech">
 Liebe Jamilia,  
@@ -107,6 +136,14 @@ Meine Jami, Baby, Baibu, Baiba, mein Sonnenschein, Pupsi, Popelmann, Popelfrau, 
 
 Du bist mein alles und vergiss es bitte nicht. Ich liebe dich.
   </div>
+
 </div>
+
+<!-- Luxus glitzernde Punkte -->
+<div class="sparkle" style="top:20%; left:15%;"></div>
+<div class="sparkle" style="top:50%; left:80%;"></div>
+<div class="sparkle" style="top:70%; left:40%;"></div>
+<div class="sparkle" style="top:30%; left:60%;"></div>
+
 </body>
 </html>
