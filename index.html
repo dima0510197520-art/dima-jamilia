@@ -17,10 +17,7 @@ html, body {
   color: white;
 }
 
-/* =========================
-   🎬 CINEMATIC INTRO
-========================= */
-
+/* 🎬 CINEMATIC INTRO */
 #intro {
   position: fixed;
   inset: 0;
@@ -31,34 +28,18 @@ html, body {
   z-index: 9999;
   animation: introFadeOut 2s ease 4s forwards;
 }
-
 #intro h1 {
   font-size: 90px;
   letter-spacing: 15px;
   color: gold;
-  text-shadow:
-      0 0 10px #fff,
-      0 0 25px #ffd700,
-      0 0 60px #ffcc00;
+  text-shadow: 0 0 10px #fff, 0 0 25px #ffd700, 0 0 60px #ffcc00;
   opacity: 0;
   animation: titleReveal 3s ease forwards;
 }
+@keyframes titleReveal { to { opacity: 1; } }
+@keyframes introFadeOut { to { opacity: 0; visibility: hidden; } }
 
-@keyframes titleReveal {
-  to { opacity: 1; }
-}
-
-@keyframes introFadeOut {
-  to {
-    opacity: 0;
-    visibility: hidden;
-  }
-}
-
-/* =========================
-   🌌 3D PARALLAX LAYER
-========================= */
-
+/* 🌌 3D PARALLAX LAYER */
 .parallax-layer {
   position: fixed;
   inset: 0;
@@ -67,27 +48,11 @@ html, body {
   will-change: transform;
   z-index: -3;
 }
+#stars { background-image: url('https://cdn.pixabay.com/photo/2017/08/30/07/52/starry-sky-2695569_1280.jpg'); z-index: -3; }
+#aurora { background-image: url('https://cdn.pixabay.com/photo/2016/12/09/09/37/aurora-1896419_1280.jpg'); opacity: 0.25; z-index: -2; }
+#glow { background: radial-gradient(circle at center, rgba(255,215,0,0.15), transparent 70%); z-index: -1; }
 
-#stars {
-  background-image: url('https://cdn.pixabay.com/photo/2017/08/30/07/52/starry-sky-2695569_1280.jpg');
-  z-index: -3;
-}
-
-#aurora {
-  background-image: url('https://cdn.pixabay.com/photo/2016/12/09/09/37/aurora-1896419_1280.jpg');
-  opacity: 0.25;
-  z-index: -2;
-}
-
-#glow {
-  background: radial-gradient(circle at center, rgba(255,215,0,0.15), transparent 70%);
-  z-index: -1;
-}
-
-/* =========================
-   CONTAINER
-========================= */
-
+/* CONTAINER */
 .container {
   max-width: 1000px;
   margin: 0 auto;
@@ -96,21 +61,15 @@ html, body {
   flex-direction: column;
   align-items: center;
 }
-
 h1 {
   font-size: 80px;
   margin-bottom: 80px;
   text-align: center;
   color: white;
-  text-shadow:
-      0 0 10px #fff,
-      0 0 30px #ffd700;
+  text-shadow: 0 0 10px #fff, 0 0 30px #ffd700;
 }
 
-/* =========================
-   SPEECH BOX
-========================= */
-
+/* SPEECH BOX */
 .speech {
   width: 100%;
   backdrop-filter: blur(25px);
@@ -123,64 +82,54 @@ h1 {
   color: #ffffff;
   position: relative;
   margin-bottom: 60px;
-
   border: 3px solid;
   border-image: linear-gradient(45deg, #caa200, #ffd700, #b8860b) 1;
-
-  box-shadow:
-      0 30px 80px rgba(0,0,0,0.5),
-      inset 0 0 40px rgba(255,255,255,0.05);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.5), inset 0 0 40px rgba(255,255,255,0.05);
 }
 
-/* =========================
-   PULSIERENDES HERZ
-========================= */
-
+/* PULSIERENDES HERZ */
 .heart-container {
   margin-top: 40px;
   margin-bottom: 150px;
+  position: relative;
 }
-
 .heart {
   font-size: 90px;
   color: #ff1a1a;
   animation: pulse 1.5s infinite;
-  text-shadow:
-      0 0 10px #ff4d4d,
-      0 0 25px #ff0000,
-      0 0 45px #ff1a1a;
+  text-shadow: 0 0 10px #ff4d4d, 0 0 25px #ff0000, 0 0 45px #ff1a1a;
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
+@keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.2); } 100% { transform: scale(1); } }
 
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.2); }
-  100% { transform: scale(1); }
+/* SCROLLBAR */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-thumb { background: linear-gradient(#caa200, #ffd700); border-radius: 20px; }
+
+/* GLITZER-EXPLOSION */
+.sparkle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(circle, #fff5cc, rgba(255,255,255,0));
+  border-radius: 50%;
+  pointer-events: none;
+  animation: sparkleMove 1s linear forwards;
 }
-
-/* =========================
-   SCROLLBAR
-========================= */
-
-::-webkit-scrollbar {
-  width: 8px;
+@keyframes sparkleMove {
+  0% { transform: translate(0,0) scale(1); opacity: 1; }
+  100% { transform: translate(var(--x), var(--y)) scale(0); opacity: 0; }
 }
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(#caa200, #ffd700);
-  border-radius: 20px;
-}
-
 </style>
 </head>
 
 <body>
 
 <!-- 🎬 INTRO -->
-<div id="intro">
-  <h1>Du bist meine Baby</h1>
-</div>
+<div id="intro"><h1>Du bist meine Baby</h1></div>
 
 <!-- 🌌 PARALLAX BACKGROUND -->
 <div id="stars" class="parallax-layer"></div>
@@ -209,14 +158,13 @@ Du bist mein alles und vergiss es bitte nicht. Ich liebe dich.
 
 <!-- ❤️ PULSIERENDES HERZ -->
 <div class="heart-container">
-  <div class="heart">❤️</div>
+  <div class="heart" id="heart">❤️</div>
 </div>
 
 </div>
 
 <script>
-
-/* 🌌 3D Parallax Effect */
+/* 🌌 Parallax Scroll */
 window.addEventListener("scroll", function() {
   const scrollY = window.scrollY;
   document.getElementById("stars").style.transform = `translateY(${scrollY * 0.2}px)`;
@@ -224,6 +172,22 @@ window.addEventListener("scroll", function() {
   document.getElementById("glow").style.transform = `translateY(${scrollY * 0.6}px)`;
 });
 
+/* ❤️ Herz-Klick → Glitzer-Explosion */
+const heart = document.getElementById("heart");
+heart.addEventListener("click", () => {
+  for(let i=0;i<25;i++){
+    const sparkle = document.createElement('div');
+    sparkle.className = 'sparkle';
+    const x = (Math.random()-0.5)*300 + 'px';
+    const y = (Math.random()-0.5)*300 + 'px';
+    sparkle.style.setProperty('--x', x);
+    sparkle.style.setProperty('--y', y);
+    sparkle.style.left = heart.offsetLeft + heart.offsetWidth/2 + 'px';
+    sparkle.style.top = heart.offsetTop + heart.offsetHeight/2 + 'px';
+    document.body.appendChild(sparkle);
+    setTimeout(()=> sparkle.remove(), 1000);
+  }
+});
 </script>
 
 </body>
