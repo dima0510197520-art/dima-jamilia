@@ -13,14 +13,15 @@ html, body {
   height: 100%;
   width: 100%;
   font-family: 'Holy River', cursive;
-  background: linear-gradient(180deg, #8b0000, #ff4d4d);
+  /* leicht dunklerer Verlauf */
+  background: linear-gradient(180deg, #7a0000, #d93a3a);
   overflow-y: auto;
   scroll-behavior: smooth;
   position: relative;
-  background-attachment: fixed; /* Parallax */
+  background-attachment: fixed;
 }
 
-/* Overlay */
+/* Overlay minimal reduziert */
 body::before {
   content: "";
   position: fixed;
@@ -29,7 +30,7 @@ body::before {
   background-image: url('https://cdn.pixabay.com/photo/2016/12/09/09/37/aurora-1896419_1280.jpg');
   background-size: cover;
   background-position: center;
-  opacity: 0.18;
+  opacity: 0.14;
   z-index: -1;
 }
 
@@ -43,7 +44,7 @@ body::before {
   align-items: center;
 }
 
-/* Titel Ultra Glow */
+/* Titel – Glow leicht reduziert */
 h1 {
   font-size: 85px;
   text-align: center;
@@ -51,17 +52,16 @@ h1 {
   letter-spacing: 12px;
   margin-bottom: 100px;
   text-shadow:
-      0 0 10px #fff,
-      0 0 25px gold,
-      0 0 50px #ff4d4d,
-      0 0 100px #ff0000;
+      0 0 8px #fff,
+      0 0 18px #e6b800,
+      0 0 35px #b30000;
 }
 
-/* Glassmorphism + Gold Frame */
+/* Glassmorphism + echter Goldrahmen */
 .speech {
   width: 100%;
-  backdrop-filter: blur(30px);
-  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(25px);
+  background: rgba(255, 255, 255, 0.06);
   padding: 80px 100px;
   border-radius: 40px;
   font-size: 22px;
@@ -70,44 +70,23 @@ h1 {
   color: #ffffff;
   position: relative;
   margin-bottom: 120px;
-  border: 1px solid rgba(255,255,255,0.2);
+
+  /* SICHTBARER Goldrahmen */
+  border: 3px solid;
+  border-image: linear-gradient(45deg, #caa200, #ffd700, #b8860b) 1;
+
   box-shadow:
-      0 40px 100px rgba(0,0,0,0.6),
-      inset 0 0 60px rgba(255,255,255,0.05);
+      0 30px 80px rgba(0,0,0,0.5),
+      inset 0 0 40px rgba(255,255,255,0.04);
+
   letter-spacing: 1px;
+
   opacity: 0;
   transform: translateY(60px);
-  transition: all 1.8s ease;
-}
-
-/* Animierter Goldrahmen */
-.speech::after {
-  content: "";
-  position: absolute;
-  inset: -5px;
-  border-radius: 45px;
-  background: linear-gradient(45deg, gold, #ffdf70, #fff4b0, gold);
-  z-index: -1;
-  filter: blur(12px);
-  opacity: 0.9;
-  animation: goldGlow 4s linear infinite;
-}
-
-@keyframes goldGlow {
-  0% {filter: blur(10px) brightness(1);}
-  50% {filter: blur(18px) brightness(1.3);}
-  100% {filter: blur(10px) brightness(1);}
+  transition: all 1.6s ease;
 }
 
 /* Tulpen */
-.speech::before, .speech::marker {
-  content: "";
-}
-
-.speech::before, .speech::after {
-  pointer-events: none;
-}
-
 .tulip-left, .tulip-right {
   position: absolute;
   top: 0;
@@ -124,32 +103,32 @@ h1 {
 
 @keyframes sway {
   0%,100% { transform: rotate(0deg); }
-  50% { transform: rotate(3deg); }
+  50% { transform: rotate(2deg); }
 }
 
-/* Scrollbar Premium */
+/* Scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 9px;
 }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(gold, #ffcc00);
+  background: linear-gradient(#caa200, #ffd700);
   border-radius: 20px;
 }
 
-/* Glitzer */
+/* Glitzer etwas sanfter */
 .sparkle {
   position: absolute;
-  width: 6px;
-  height: 6px;
-  background: radial-gradient(circle, #fff5cc, rgba(255,255,255,0));
+  width: 5px;
+  height: 5px;
+  background: radial-gradient(circle, #fff3c4, rgba(255,255,255,0));
   border-radius: 50%;
-  opacity: 0.8;
+  opacity: 0.7;
   animation: sparkleMove linear infinite;
 }
 
 @keyframes sparkleMove {
   0% {transform: translateY(0) translateX(0);}
-  100% {transform: translateY(-1500px) translateX(300px);}
+  100% {transform: translateY(-1500px) translateX(250px);}
 }
 </style>
 </head>
@@ -181,7 +160,6 @@ Du bist mein alles und vergiss es bitte nicht. Ich liebe dich.
 </div>
 
 <script>
-/* Mehr luxuriöse Glitzer */
 const count = 80;
 for(let i=0;i<count;i++){
   const sparkle = document.createElement('div');
@@ -190,11 +168,11 @@ for(let i=0;i<count;i++){
   sparkle.style.top = Math.random()*100 + 'vh';
   sparkle.style.width = 4+Math.random()*6 + 'px';
   sparkle.style.height = sparkle.style.width;
-  sparkle.style.animationDuration = 10 + Math.random()*15 + 's';
+  sparkle.style.animationDuration = 12 + Math.random()*12 + 's';
   document.body.appendChild(sparkle);
 }
 
-/* Fade-In Scroll */
+/* Fade-In */
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if(entry.isIntersecting){
